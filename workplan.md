@@ -31,17 +31,26 @@
 
 # List down all work effort
 
--   Adding extra categories for types of fortune telling
--   Update UI to adapt to extra fortunes
--   Bug fix!! Save readings cannot go back to menu
--   Implement Chatgpt into fortune telling (MAYBE)
--   Online functionality
--   Login page UI
+-   Design
+    -   Update UI to adapt to extra fortunes 			(High Priority, 3H)
+    -   Login page UI 						(High Priority, 4H)
+-   Dev
+    -   Adding extra categories for types of fortune telling 	(High Priority, 6H)
+    -   Implement Chatgpt into fortune telling (MAYBE) 	(Medium Priority, 10H) 
+    -   Online functionality 					(High Priority, 6H)
+    -   3 Tier Architecture (Backend-Frontend-Database)	(High Priority, 10H)
+    -   Explanations page for cards				(Medium Priority, 3H)
+-   Testing
+    -   Bug fix!! Save readings cannot go back to menu 	(Low Priority, 4H)
 
-# Estimate and prioritize tasks (Respectively)
+# Sequencing Information
+Sprint 0: Planning, dividing tasks, and organizing groups by interest
+Sprint 1: Tasks - 3 Tier Architecture, Login UI
 
--   
+Pair Programming, with either 2-3 people working on Frontend or Backend of refactor.
 
-# sequencing information
+One group working on Login UI
 
-
+Sprint 2: Online/Login functionality, Saving fortunes into db
+Sprint 3: Extra categories, Chat GPT
+Sprint 4: Explanation page, GPT continued
