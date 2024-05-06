@@ -45,6 +45,7 @@
 
 # Sequencing Information
 Sprint 0: Planning, dividing tasks, and organizing groups by interest
+
 Sprint 1: Tasks - 3 Tier Architecture, Login UI
 
 Pair Programming, with either 2-3 people working on Frontend or Backend of refactor.
@@ -52,5 +53,7 @@ Pair Programming, with either 2-3 people working on Frontend or Backend of refac
 One group working on Login UI
 
 Sprint 2: Online/Login functionality, Saving fortunes into db
+
 Sprint 3: Extra categories, Chat GPT
+
 Sprint 4: Explanation page, GPT continued
