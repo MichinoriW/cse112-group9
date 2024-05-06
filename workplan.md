@@ -44,17 +44,17 @@
   -   Sprint 1: Tasks - 3 Tier Architecture, Login UI
     -   Pair Programming, with either 2-3 people working on Frontend or Backend of refactor.
       -   Front end:
-        -   Fanglei Gao
-        -   Michi Wada
+          -   Fanglei Gao
+          -   Michi Wada
       -   Back end:
-        -   Borna Hemmaty
-        -   Dylan Olivares
+          -   Borna Hemmaty
+          -   Dylan Olivares
       -   Database:
-        -   Claire Andolina
-        -   Vivian Kwan
+          -   Claire Andolina
+          -   Vivian Kwan
       -   One group working on Login UI
-        -   Sebastian Pamudji
-        -   Devin Muzzy
+          -   Sebastian Pamudji
+          -    Devin Muzzy
   -   Sprint 2: Online/Login functionality, Saving fortunes into db
   -   Sprint 3: Extra categories, Chat GPT
   -   Sprint 4: Explanation page, GPT continued
