@@ -44,16 +44,15 @@
     -   Bug fix!! Save readings cannot go back to menu 	(Low Priority, 4H)
 
 # Sequencing Information
-Sprint 0: Planning, dividing tasks, and organizing groups by interest
+- Sprint 0: Planning, dividing tasks, and organizing groups by interest
 
-Sprint 1: Tasks - 3 Tier Architecture, Login UI
+- Sprint 1: Tasks
+    - 3 Tier Architecture, Login UI
+    - Pair Programming, with either 2-3 people working on Frontend or Backend of refactor.
+    - One group working on Login UI
 
-Pair Programming, with either 2-3 people working on Frontend or Backend of refactor.
+- Sprint 2: Online/Login functionality, Saving fortunes into db
 
-One group working on Login UI
+- Sprint 3: Extra categories, Chat GPT
 
-Sprint 2: Online/Login functionality, Saving fortunes into db
-
-Sprint 3: Extra categories, Chat GPT
-
-Sprint 4: Explanation page, GPT continued
+- Sprint 4: Explanation page, GPT continued
