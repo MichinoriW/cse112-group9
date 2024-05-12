@@ -23,6 +23,9 @@ async function run() {
 run().catch(console.dir);
 
 
+/*
+ * Sign up Functionality
+ */
 async function createUser(username, password, email, firstname, lastname) {
   
   var newUser = { user : username, email : email, first : firstname, last : lastname, pass : password }
@@ -36,6 +39,9 @@ async function createUser(username, password, email, firstname, lastname) {
   return true
 }
 
+/*
+ * Login Functionality
+ */
 async function Login(username, password){
 
   await client.db("admin").findOne({user : username }, user = function(err, res) {
@@ -66,7 +72,20 @@ async function Login(username, password){
   return false;
 }
 
-async function deleteFortune(username, password) {
+/*
+ * Inserting a Fortune
+ */
+async function insertFortune(username, password, fortune, type){
+  var myquery = { user: username, pass: password };
+  var newvalues = {fortune : fortune, type : type}
+  await client.db("admin").insertOne(myquery, newvalues)
+}
+
+
+/*
+ * Deleting a Fortune
+ */
+async function deleteFortune(username, password, index) {
   var myquery = { user: username, pass: password };
   var newvalues = { };
 

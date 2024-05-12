@@ -1,6 +1,7 @@
 
 class User{
 
+    
     /*
      * Storing Mongo URL for later use
     */
@@ -10,6 +11,11 @@ class User{
         this.first = arr[2];
         this.last = arr[3];
         this.fortunes = arr[4];
+        this.loggedIn = true;
+    }
+
+    constructor(){
+        this.loggedIn = false;
     }
 
     addFortune(){
