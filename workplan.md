@@ -56,15 +56,15 @@
               -   Sebastian Pamudji
               -    Devin Muzzy
   -   Sprint 2: Online/Login functionality, Saving fortunes into db, finish 3 Tier Architecture
-    -   User Login UI
-      -   Fanglei
-      -   Michi
-      -   Sebastian
-      -   Devin
-    -   Backend
-      -   Borna
-      -   Dylan
-      -   Claire
-      -   Vivian
+      -   User Login UI
+          -   Fanglei
+          -   Michi
+          -   Sebastian
+          -   Devin
+      -   Backend
+          -   Borna
+          -   Dylan
+          -   Claire
+          -   Vivian
   -   Sprint 3: Extra categories, Chat GPT
   -   Sprint 4: Explanation page, GPT continued
