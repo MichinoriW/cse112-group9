@@ -1,56 +1,62 @@
 /* Import fonts for landing page*/
-@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
 
 /* Reset default browser styles */
-body, h1, p {
-    margin: 0;
-    padding: 0;
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
 }
 
-/* Adds background picture of hut and change background colour to match*/ 
+/* Adds background picture of hut and change background colour to match*/
 html {
-    background: url(assets/landing-page/backdrop.png) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-color: rgb(2, 31, 2); /*change background color to match hut picture */
+  background: url(assets/landing-page/backdrop.png) no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: rgb(
+    2,
+    31,
+    2
+  ); /*change background color to match hut picture */
 }
 
 /* Animation for entering the hut */
 @keyframes zoom {
-    from {
-        /* Switch from cover to 100% 100%
+  from {
+    /* Switch from cover to 100% 100%
            because cover doesn't work with animation */
-        -webkit-background-size:  100% 100%;
-        -moz-background-size:  100% 100%;
-        -o-background-size:  100% 100%;
-        background-size: 100% 100%;
-    }
-    to {
-        -webkit-background-size: 800% 1200%;
-        -moz-background-size: 800% 1200%;
-        -o-background-size: 800% 1200%;
-        background-size: 800% 1200%;
-        background-position: 50% 80%;
-    }
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
   }
+  to {
+    -webkit-background-size: 800% 1200%;
+    -moz-background-size: 800% 1200%;
+    -o-background-size: 800% 1200%;
+    background-size: 800% 1200%;
+    background-position: 50% 80%;
+  }
+}
 
-  
 /* Styles the header */
 header {
-    /*background-color: #1B4721;*/
-    border: 2px solid red;
-    border: transparent; 
-    padding-top: 20px;
-    margin: 0; 
-    text-align: center;
+  /*background-color: #1B4721;*/
+  border: 2px solid red;
+  border: transparent;
+  padding-top: 20px;
+  margin: 0;
+  text-align: center;
 }
 
 /* Styles the heading/title text*/
 h1 {
-  font-family: 'Macondo', cursive;
+  font-family: "Macondo", cursive;
   font-size: 70px;
   font-weight: bold;
   color: whitesmoke;
@@ -60,63 +66,146 @@ h1 {
 
 /* Styles the frame around the introduction text*/
 .storyFrame {
-    position: relative; 
-    border: 2px solid red; 
-    border-radius: 50px;
-    border: 0;
-    
-    margin: 50px auto; 
-    padding: 0;
-    top: 100%; 
+  position: relative;
+  border: 2px solid red;
+  border-radius: 50px;
+  border: 0;
 
-    width: 600px;
-    height: 300px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: 50px auto;
+  padding: 0;
+  top: 100%;
+
+  width: 600px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Styles the text inside the frame */
 .storyFrame p {
-    color: white;
-    font-family: 'Hubballi', cursive;
-    font-weight: bold;
-    text-align: center;
-    font-size: 25px;
-    line-height: 1.5;
-    margin-top: 10px; 
-    margin-bottom: 10px;
-    padding: 20px;
-    background-color: rgba(3, 29, 3, 0.8);
-    border-radius: 30px;
+  color: white;
+  font-family: "Hubballi", cursive;
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+  line-height: 1.5;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: rgba(3, 29, 3, 0.8);
+  border-radius: 30px;
 }
 
 .questionFrame {
   width: 400px;
-  background-color: black ;
+  background-color: black;
   margin: 0 auto;
 }
 
 /* Styles the enter button*/
-button { 
-    font-family: 'Hubballi', cursive;
-    font-weight: bold;
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    /*background-color: #8B4513;*/
-    background-color: rgba(139, 69, 19, 0.5);
-    font-size: 60px;
-    color: #FFFFFF;
-    text-decoration: none;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+button {
+  font-family: "Hubballi", cursive;
+  font-weight: bold;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  /*background-color: #8B4513;*/
+  background-color: rgba(139, 69, 19, 0.5);
+  font-size: 60px;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 /*Animates the enter button*/
 button:hover {
-    background-color: rgb(143, 122, 18);
-    color: black; 
+  background-color: rgb(143, 122, 18);
+  color: black;
+}
+
+/* Styles for the dialog */
+dialog#loginDialog {
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(3, 29, 3, 0.8);
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 1000; /* Keeps it on top of other content */
+  overflow: hidden; /* Keeps child elements contained */
+  visibility: hidden; /* Hide dialog by default */
+}
+
+/* Show dialog with fade-in effect */
+dialog#loginDialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+/* Aligning text and input fields inside the dialog */
+dialog#loginDialog form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Styling form inputs to match the theme */
+dialog#loginDialog input[type="text"],
+dialog#loginDialog input[type="password"] {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styling buttons inside the dialog */
+dialog#loginDialog button {
+  font-family: "Hubballi", cursive;
+  font-size: 20px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: white;
+  background-color: rgba(139, 69, 19, 0.8);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+dialog#loginDialog button:hover {
+  background-color: rgb(143, 122, 18);
+  color: black;
+}
+
+/* Custom animation for dialog appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Trigger animation when dialog is shown */
+dialog[open]#loginDialog {
+  visibility: visible;
+  animation: fadeIn 0.5s ease-out forwards;
 }

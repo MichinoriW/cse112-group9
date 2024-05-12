@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>The Fortune Hut - Landing</title>
-    <link rel="stylesheet" type="text/css" href="landing-style.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="landing-style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
   </head>
 
@@ -15,20 +15,36 @@
       <source src="assets/landing-page/intro-woosh.mp3" type="audio/mpeg"> 
     </audio> -->
     <header>
-      <h1> THE FORTUNE HUT</h1>
+      <h1>THE FORTUNE HUT</h1>
+      <button id="loginBtn">Login</button>
     </header>
+
+    <dialog id="loginDialog">
+      <!-- Sends post request with username and password to the URL defined after action="/url/goes/here" -->
+      <form action="/login" method="post">
+          <input type="text" id="name" name="name" placeholder="Username">
+          <input type="password" id="password" name="password" placeholder="Password">
+          
+          <button id="confirmBtn" value="submit">Confirm</button>
+          <button value="cancel" formmethod="dialog">Cancel</button>
+          </div>
+      </form>
+      </dialog>
+
     <!-- A container to make a frame or box around the introduction/story-->
     <div class="storyFrame">
       <p>
-        Deep in the forest, hidden amongst the trees is a hut that possesses powers to foresee the future.
-        Legend says that all who enter, discover something new about themselves. Some walk away with renewed hope... others with crushed dreams.
-        As you get closer, a rustic, old voice beckons, "Come in, my child!"
-        <br>
+        Deep in the forest, hidden amongst the trees is a hut that possesses
+        powers to foresee the future. Legend says that all who enter, discover
+        something new about themselves. Some walk away with renewed hope...
+        others with crushed dreams. As you get closer, a rustic, old voice
+        beckons, "Come in, my child!"
+        <br />
       </p>
     </div>
-    <div class="questionFrame">
-    </div>
-    <button>WILL YOU ENTER?</button>
+    <div class="questionFrame"></div>
+    <button id="menu">WILL YOU ENTER?</button>
     <script type="text/javascript" src="landing-script.js"></script>
   </body>
+
 </html>
