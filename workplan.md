@@ -68,3 +68,7 @@
           -   Vivian
   -   Sprint 3: Extra categories, Chat GPT
   -   Sprint 4: Explanation page, GPT continued
+
+# Retrospectives
+
+![img](https://lh7-us.googleusercontent.com/6v18IPOtYh-GWCh6AQwPqa4XqAsat-oAIaSb6v0AbPTcg_JfYdWKHBDjMQPFm3Ho_099UKutVm_Yu1w6zoLvbzTnDdIRu2CfC-7FsnmF-qvDiG5S3rGdC7MUrXYlUxxPVNn-LxyCI5f389OW3OMvQBM)
