@@ -46,12 +46,12 @@ html {
 
 /* Styles the header */
 header {
-  /*background-color: #1B4721;*/
-  border: 2px solid red;
-  border: transparent;
-  padding-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
   margin: 0;
-  text-align: center;
 }
 
 /* Styles the heading/title text*/
@@ -62,6 +62,32 @@ h1 {
   color: whitesmoke;
   letter-spacing: 5px;
   text-shadow: 0 0 10px purple;
+}
+/* Container for the login and signup buttons */
+.auth-buttons {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Style the login and signup buttons */
+.auth-buttons button {
+  font-family: "Hubballi", cursive;
+  font-size: 16px;
+  padding: 5px 10px;
+  color: white;
+  background-color: rgba(139, 69, 19, 0.8);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons button:hover {
+  background-color: rgb(143, 122, 18);
+  color: black;
 }
 
 /* Styles the frame around the introduction text*/
@@ -127,14 +153,14 @@ button:hover {
   color: black;
 }
 
-/* Styles for the dialog */
-dialog#loginDialog {
+/* Common styles for both dialogs */
+dialog#loginDialog,
+dialog#signupDialog {
   margin: 0;
   position: fixed;
   top: 50%;
   left: 50%;
   width: 600px;
-  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,14 +175,25 @@ dialog#loginDialog {
   visibility: hidden; /* Hide dialog by default */
 }
 
-/* Show dialog with fade-in effect */
-dialog#loginDialog::backdrop {
+/* Specific heights for each dialog */
+dialog#loginDialog {
+  height: 300px;
+}
+
+dialog#signupDialog {
+  height: 350px; /* Adjusted height for additional input */
+}
+
+/* Show dialogs with fade-in effect */
+dialog#loginDialog::backdrop,
+dialog#signupDialog::backdrop {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
 }
 
-/* Aligning text and input fields inside the dialog */
-dialog#loginDialog form {
+/* Aligning text and input fields inside the dialogs */
+dialog#loginDialog form,
+dialog#signupDialog form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,7 +202,10 @@ dialog#loginDialog form {
 
 /* Styling form inputs to match the theme */
 dialog#loginDialog input[type="text"],
-dialog#loginDialog input[type="password"] {
+dialog#loginDialog input[type="password"],
+dialog#signupDialog input[type="text"],
+dialog#signupDialog input[type="password"],
+dialog#signupDialog input[type="email"] {
   width: 80%;
   padding: 8px;
   margin-bottom: 20px;
@@ -173,8 +213,9 @@ dialog#loginDialog input[type="password"] {
   border-radius: 4px;
 }
 
-/* Styling buttons inside the dialog */
-dialog#loginDialog button {
+/* Styling buttons inside the dialogs */
+dialog#loginDialog button,
+dialog#signupDialog button {
   font-family: "Hubballi", cursive;
   font-size: 20px;
   padding: 10px 20px;
@@ -187,7 +228,8 @@ dialog#loginDialog button {
   transition: background-color 0.3s ease;
 }
 
-dialog#loginDialog button:hover {
+dialog#loginDialog button:hover,
+dialog#signupDialog button:hover {
   background-color: rgb(143, 122, 18);
   color: black;
 }
@@ -204,8 +246,9 @@ dialog#loginDialog button:hover {
   }
 }
 
-/* Trigger animation when dialog is shown */
-dialog[open]#loginDialog {
+/* Trigger animation when dialogs are shown */
+dialog[open]#loginDialog,
+dialog[open]#signupDialog {
   visibility: visible;
   animation: fadeIn 0.5s ease-out forwards;
 }

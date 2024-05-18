@@ -65,11 +65,15 @@ enterButton.addEventListener("click", enterHut);
 /* --NEW login script-- */
 const loginButton = document.getElementById("loginBtn");
 const loginDialog = document.getElementById("loginDialog");
+const signupButton = document.getElementById("signupBtn");
+const signupDialog = document.getElementById("signupDialog");
 
 loginButton.addEventListener("click", () => {
   loginDialog.showModal();
 });
-
+signupButton.addEventListener("click", () => {
+  signupDialog.showModal();
+});
 // TODO: script to fetch the database
 
 // enterButton.addEventListener('click', () => {

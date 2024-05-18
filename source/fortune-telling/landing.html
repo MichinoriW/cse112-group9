@@ -16,7 +16,10 @@
     </audio> -->
     <header>
       <h1>THE FORTUNE HUT</h1>
-      <button id="loginBtn">Login</button>
+      <div class="auth-buttons">
+        <button id="loginBtn">Login</button>
+        <button id="signupBtn">Sign Up</button>
+      </div>
     </header>
 
     <dialog id="loginDialog">
@@ -31,6 +34,17 @@
       </form>
       </dialog>
 
+      <dialog id="signupDialog">
+        <!-- Sends post request with user information to the URL defined after action="/signup" -->
+        <form action="/signup" method="post">
+          <input type="email" id="email" name="email" placeholder="Email">
+          <input type="text" id="signupName" name="name" placeholder="Username">
+          <input type="password" id="signupPassword" name="password" placeholder="Password">
+          
+          <button id="signupConfirmBtn" value="submit">Sign Up</button>
+          <button value="cancel" formmethod="dialog">Cancel</button>
+        </form>
+      </dialog>
     <!-- A container to make a frame or box around the introduction/story-->
     <div class="storyFrame">
       <p>
