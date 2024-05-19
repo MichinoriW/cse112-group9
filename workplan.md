@@ -67,20 +67,20 @@
           -   Claire
           -   Vivian
   -   Sprint 3: Extra categories, Chat GPT
-  -   We will be allocating people to focus primarily on backend and database
-  -   These tasks will need to be completed in order
-  -   ADR documentation (specification of what design choices we made and why)
-  -   Part 1 Link frontend and backend of login/sign up *Wednesday Deadline*: Fanglei, Sebastian
-      -    Add button listeners to call to backend API
-  -   Part 2 Save login status until they sign out / logout function: Borna, Dylan
-      -   Implement browser cookies to save user status
-      -   HTML, CSS, JS of logout button
-      -   Logic for different login button displays based on if guest or registered user
-  -   Part 3 Persistence of saved fortunes: Vivian, Claire
-      -   Secure storage and retrieval of fortunes (no overlap with other user’s histories)
-  -   Part 4 Username/email validation: Michi, Devin
-      -   Check duplicate emails / usernames
-      -   Logic to handle unregistered username/email and password combinations in login page
+      -   We will be allocating people to focus primarily on backend and database
+      -   These tasks will need to be completed in order
+      -   ADR documentation (specification of what design choices we made and why)
+      -   Part 1 Link frontend and backend of login/sign up *Wednesday Deadline*: Fanglei, Sebastian
+          -    Add button listeners to call to backend API
+      -   Part 2 Save login status until they sign out / logout function: Borna, Dylan
+          -   Implement browser cookies to save user status
+          -   HTML, CSS, JS of logout button
+          -   Logic for different login button displays based on if guest or registered user
+      -   Part 3 Persistence of saved fortunes: Vivian, Claire
+          -   Secure storage and retrieval of fortunes (no overlap with other user’s histories)
+      -   Part 4 Username/email validation: Michi, Devin
+          -   Check duplicate emails / usernames
+          -   Logic to handle unregistered username/email and password combinations in login page
 
   -   Sprint 4: Explanation page, GPT continued
 
