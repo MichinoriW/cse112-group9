@@ -1,4 +1,3 @@
-
 # Team Structure:
   -   Set a specific time and date when deciding when to meet
   -   Pair programming
@@ -29,7 +28,7 @@
 
 # List down all work effort
   -   Design
-      -   Update UI to adapt to extra fortunes 			(High Priority, 3H)  **DONE**
+      -   Update UI to adapt to extra fortunes 			(High Priority, 3H)
       -   Login page UI 						(High Priority, 4H)
   -   Dev
       -   Adding extra categories for types of fortune telling 	(High Priority, 6H)
@@ -38,7 +37,7 @@
       -   3 Tier Architecture (Backend-Frontend-Database)	(High Priority, 10H)
       -   Explanations page for cards				(Medium Priority, 3H)
   -   Testing
-      -   Bug fix!! Save readings cannot go back to menu 	(Low Priority, 4H)  **DONE**
+      -   Bug fix!! Save readings cannot go back to menu 	(Low Priority, 4H)
 
 # Sequencing Information
   -   Sprint 0: Planning, dividing tasks, and organizing groups by interest
@@ -56,6 +55,20 @@
           -   One group working on Login UI
               -   Sebastian Pamudji
               -    Devin Muzzy
-  -   Sprint 2: Online/Login functionality, Saving fortunes into db
-  -   Sprint 3: Extra categories
-  -   Sprint 4: Explanation page, ChatGPT
+  -   Sprint 2: Online/Login functionality, Saving fortunes into db, finish 3 Tier Architecture
+      -   User Login UI
+          -   Fanglei
+          -   Michi
+          -   Sebastian
+          -   Devin
+      -   Backend
+          -   Borna
+          -   Dylan
+          -   Claire
+          -   Vivian
+  -   Sprint 3: Extra categories, Chat GPT
+  -   Sprint 4: Explanation page, GPT continued
+
+# Retrospectives
+
+![img](https://lh7-us.googleusercontent.com/6v18IPOtYh-GWCh6AQwPqa4XqAsat-oAIaSb6v0AbPTcg_JfYdWKHBDjMQPFm3Ho_099UKutVm_Yu1w6zoLvbzTnDdIRu2CfC-7FsnmF-qvDiG5S3rGdC7MUrXYlUxxPVNn-LxyCI5f389OW3OMvQBM)
