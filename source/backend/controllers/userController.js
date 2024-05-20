@@ -31,8 +31,8 @@ const getUser = async (req, res) => {
 // POST a new user
 const createUser = async (req, res) => {
     try {
-        const { email, username, name, age } = req.body;
-        const user = await User.create({ email, username, name, age });
+        const { email, username, password } = req.body;
+        const user = await User.create({ email, username, password });
         res.status(201).json(user);
     } catch (error) {
         res.status(400).json({ error: 'Invalid data' });
@@ -55,8 +55,8 @@ const deleteUser = async (req, res) => {
 // UPDATE a user
 const updateUser = async (req, res) => {
     try {
-        const { email, username, name, age } = req.body;
-        const user = await User.findByIdAndUpdate(req.params.id, { email, username, name, age }, { new: true });
+        const { email, username, password } = req.body;
+        const user = await User.findByIdAndUpdate(req.params.id, { email, username, password }, { new: true });
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
@@ -66,10 +66,37 @@ const updateUser = async (req, res) => {
     }
 };
 
+const loginUser = async (req, res) => {
+    const {email, password} = req.body;
+
+    try{
+        const user = await User.login(email, password);
+
+        res.status(200).json({email, token});
+    } catch (error) {
+        res.status(400).json({mssg: error.message});
+    }
+}
+
+// signup user
+const signupUser = async (req, res) => {
+    const { email, username, password } = req.body;
+
+    try{
+        const user = await User.signup(email, username, password);
+
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(400).json({mssg: error.message});
+    }
+}
+
 module.exports = {
     getUsers,
     getUser,
     createUser,
     deleteUser,
-    updateUser
+    updateUser,
+    loginUser,
+    signupUser
 };

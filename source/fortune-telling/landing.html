@@ -24,8 +24,8 @@
 
     <dialog id="loginDialog">
       <!-- Sends post request with username and password to the URL defined after action="/url/goes/here" -->
-      <form action="/login" method="post">
-          <input type="text" id="name" name="name" placeholder="Username">
+      <form id="loginForm" action="http://localhost:5500/api/login" method="post">
+          <input type="text" id="username" name="username" placeholder="Username">
           <input type="password" id="password" name="password" placeholder="Password">
           
           <button id="confirmBtn" value="submit">Confirm</button>
@@ -36,9 +36,9 @@
 
       <dialog id="signupDialog">
         <!-- Sends post request with user information to the URL defined after action="/signup" -->
-        <form action="/signup" method="post">
+        <form id="signupForm" action="http://localhost:5500/api/signup" method="post">
           <input type="email" id="email" name="email" placeholder="Email">
-          <input type="text" id="signupName" name="name" placeholder="Username">
+          <input type="text" id="signupUsername" name="username" placeholder="Username">
           <input type="password" id="signupPassword" name="password" placeholder="Password">
           
           <button id="signupConfirmBtn" value="submit">Sign Up</button>

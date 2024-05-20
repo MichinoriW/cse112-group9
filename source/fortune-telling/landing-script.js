@@ -8,9 +8,6 @@
  * @author Helen Lin
  */
 
-const { getUser, createUser } = require("../backend/controllers/userController");
-
-
 
 /**
  * A reference to the html element of the page which defines the background-image
@@ -84,8 +81,8 @@ signupButton.addEventListener("click", () => {
  * User Login Controlls
  */
 const confirmButton = document.getElementById("confirmBtn")
-const loginUser = doment.querySelector("name")
-const loginPass = doment.querySelector("password")
+const loginUser = document.querySelector("name")
+const loginPass = document.querySelector("password")
 
 confirmButton.addEventListener("click", () => {
   const username = loginUser.value
@@ -103,12 +100,12 @@ confirmButton.addEventListener("click", () => {
 });
 
 /**
- * Sign Up Controlls
+ * Sign Up Controls
  */
 const confirmSignUpButton = document.getElementById("signupConfirmBtn")
-const signUpEmail = doment.querySelector("email")
-const signUpUser = doment.querySelector("signupName")
-const signUpPass = doment.querySelector("signupPassword")
+const signUpEmail = document.getElementById("email")
+const signUpUser = document.getElementById("signupName")
+const signUpPass = document.getElementById("signupPassword")
 
 confirmSignUpButton.addEventListener("click", () => {
   const email = signUpEmail.value
@@ -124,21 +121,56 @@ confirmSignUpButton.addEventListener("click", () => {
 
   toMenuPage()
 });
-// TODO: script to fetch the database
 
-// enterButton.addEventListener('click', () => {
-//    setTimeout(playWoosh, 500);
-//    setTimeout(enterHut, 1000);
-//  });
+document.getElementById('loginForm').addEventListener('submit', async function (event) {
+  event.preventDefault();
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
 
-// /* Add event listener to start music when DOMContentLoaded */
-//document.addEventListener("DOMContentLoaded", startBackgroundMusic());
+  try {
+      const response = await fetch('http://localhost:5500/api/user/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+      });
 
-// /**
-//   * Reduce background music volume
-//   */
-// function startBackgroundMusic() {
-//    let backgroundMusic = document.getElementById("music");
-//    backgroundMusic.volume = 0.1;
-//    backgroundMusic.play();
-// }
+      if (response.ok) {
+          // Handle success
+          alert('Login successful');
+      } else {
+          // Handle error
+          alert('Login failed');
+      }
+  } catch (error) {
+      // Handle network error
+      console.error('Error:', error);
+      alert('An error occurred');
+  }
+});
+
+document.getElementById('signupForm').addEventListener('submit', async function (event) {
+  event.preventDefault();
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+  console.log(JSON.stringify(data));
+
+  try {
+      const response = await fetch('http://localhost:5500/api/user/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+          // Handle success
+          alert('Signup successful');
+      } else {
+          // Handle error
+          alert('Signup failed');
+      }
+  } catch (error) {
+      // Handle network error
+      console.error('Error:', error);
+      alert('An error occurred');
+  }
+});
