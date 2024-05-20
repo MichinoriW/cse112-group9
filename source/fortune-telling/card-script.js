@@ -9,7 +9,6 @@
  */
 
 /* TODO: The scope of these variables may be adjusted later */
-import { createUserReading } from "../backend/controllers/userReadingController.js";
 import { addFortune } from "./saved-readings-script.js";
 
 /**
@@ -422,9 +421,6 @@ function saveFortune() {
       console.error('Error saving fortune:', error);
   });
 
-
-  // Save Server side too
-  createUserReading(fortuneData)
   // Remove listener for save fortune button
   predictButton.removeEventListener("click", generatePrediction);
 
