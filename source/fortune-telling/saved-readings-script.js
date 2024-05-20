@@ -147,17 +147,20 @@ export function addFortune(fortuneText, category, date) {
  * @returns {Array<Object>} - an array of fortunes, each with fortune, category,
  * and date elements
  */
-function getFortunes() {
-	if(localStorage.getItem('fortunes') == null) {
-		return [];
-	}else {
-		let arr = [];
-		let list = JSON.parse(localStorage.getItem('fortunes'));
-		for(let i in list) {
-			arr.push(list[i]);
-		}
-		return arr;
-	}
+async function getFortunes() {
+    try {
+        // Make an HTTP GET request to the server API endpoint
+        const response = await fetch('http://localhost:5500/api/fortuneMsg');
+        if (!response.ok) {
+            throw new Error('Failed to fetch fortunes');
+        }
+        const fortunes = await response.json();
+		console.log(fortunes);
+        return fortunes;
+    } catch (error) {
+        console.error('Error fetching fortunes:', error);
+        return [];
+    }
 }
 
 /**
@@ -169,83 +172,110 @@ function getFortunes() {
  * the locale of the browser. So if your browser uses Spanish 
  * for the UI, the date would be in Spanish.
  */
-function displayFortunes() {
-  const history = document.querySelector(".historyWrapper");
-  if (history === null)
-    return;
-	// retrieves fortunes from local storage in an array
-	let arr = getFortunes();
-	// clears the display of fortunes
-  if (history !== null)
-    	history.innerHTML = '';
-	// loops through each fortune and displays it
-	for(let i = 0; i<arr.length; i++) {
-		// creates div element as wrapper
-		let fortuneInList = document.createElement('div');
-		fortuneInList.classList.add("fortune");
-		// creates an h3 element that holds fortune text
-		let fortuneText = document.createElement("h3");
-		fortuneText.innerHTML = arr[i][0];
-		fortuneText.classList.add("fortuneText");
-		// creates an h3 element that holds fortune category
-		let fortuneCategory = document.createElement("h3");
-		fortuneCategory.innerHTML = arr[i][1];
-		fortuneCategory.classList.add("fortuneCategory");
-		// creates an h3 element that holds fortune date (specific to locale)
-		let fortuneDate = document.createElement("h3");
-		fortuneDate.innerHTML = new Date(arr[i][2]).toLocaleDateString(undefined, {
-			weekday: "long",
-			year: "numeric",
-			month: "long",
-			day: "numeric",
-		});
-		fortuneDate.classList.add("fortuneDate");
-		// Add Delete Button
-		let deleteButton = document.createElement('img');
-		deleteButton.src = "assets/saved-readings-page/trash.png";
-		deleteButton.style.borderRadius = '5px';
-		deleteButton.style.height = "100%";
-		// Red border on mouse over
-		deleteButton.addEventListener('mouseover', () => {
+async function displayFortunes() {
+    const history = document.querySelector(".historyWrapper");
+    if (!history)
+        return;
 
-			deleteButton.style.boxShadow = '0 0 10px 5px #ff0000';
-		});
-		// No border color when not hovering
-		deleteButton.addEventListener('mouseout', () => {
-			deleteButton.style.boxShadow = '';
-		});
-		// Delete fortune on click
-		deleteButton.addEventListener('click', () => {
-			deleteFortune(i);
-			displayFortunes();
-		});
-		// adds image based off category
-		console.log(fortuneCategory.innerHTML);
-		let fortuneImg = document.createElement('img');
-		if(fortuneCategory.innerHTML === 'Love'){
-			fortuneImg.src = `assets/card-page/love_back.png`;
-		}
-		else if(fortuneCategory.innerHTML === 'School'){
-			fortuneImg.src = `assets/card-page/school_back.png`;
-		}
-		else if(fortuneCategory.innerHTML === 'Life'){
-			fortuneImg.src = `assets/card-page/life_back.png`;
-		}
-		fortuneImg.style.display = 'block';
+    try {
+        // Retrieve fortunes from the server
+        const response = await fetch('http://localhost:5500/api/fortuneMsg');
+        if (!response.ok) {
+            throw new Error('Failed to fetch fortunes');
+        }
+        const fortunes = await response.json();
 
-		// adds elements with fortune text, category, and date to the fortune div wrapper
+        // Clear the display of fortunes
+        history.innerHTML = '';
 
-		let fortuneDetails = document.createElement("div");
-		fortuneDetails.classList.add("fortuneDetails");
-		fortuneDetails.appendChild(fortuneImg);
-		fortuneDetails.appendChild(fortuneCategory);
-		fortuneDetails.appendChild(fortuneDate);
-		fortuneDetails.appendChild(deleteButton);
-		
-		fortuneInList.appendChild(fortuneDetails);
-		fortuneInList.appendChild(fortuneText);
-		history.appendChild(fortuneInList);
-	}
+        // Loop through each fortune and display it
+        fortunes.forEach((fortune, index) => {
+            // Create div element as wrapper
+            let fortuneInList = document.createElement('div');
+            fortuneInList.classList.add("fortune");
+
+            // Create an h3 element that holds fortune text
+            let fortuneText = document.createElement("h3");
+            fortuneText.innerHTML = fortune.description;
+            fortuneText.classList.add("fortuneText");
+
+            // Create an h3 element that holds fortune category
+            let fortuneCategory = document.createElement("h3");
+            fortuneCategory.innerHTML = fortune.category_id;
+            fortuneCategory.classList.add("fortuneCategory");
+
+            // Create an h3 element that holds fortune date (specific to locale)
+            let fortuneDate = document.createElement("h3");
+            fortuneDate.innerHTML = new Date(fortune.date).toLocaleDateString(undefined, {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
+            fortuneDate.classList.add("fortuneDate");
+			
+            // Add Delete Button
+            let deleteButton = document.createElement('img');
+            deleteButton.src = "assets/saved-readings-page/trash.png";
+            deleteButton.style.borderRadius = '5px';
+            deleteButton.style.height = "100%";
+
+            // Red border on mouse over
+            deleteButton.addEventListener('mouseover', () => {
+                deleteButton.style.boxShadow = '0 0 10px 5px #ff0000';
+            });
+
+            // No border color when not hovering
+            deleteButton.addEventListener('mouseout', () => {
+                deleteButton.style.boxShadow = '';
+            });
+
+            // Delete fortune on click
+            deleteButton.addEventListener('click', async () => {
+                try {
+                    // Make an HTTP DELETE request to delete the fortune
+                    const deleteResponse = await fetch(`http://localhost:5500/api/fortuneMsg/${fortune._id}`, {
+                        method: 'DELETE'
+                    });
+                    if (!deleteResponse.ok) {
+                        throw new Error('Failed to delete fortune');
+                    }
+                    // Re-display fortunes after deletion
+                    displayFortunes();
+                } catch (error) {
+                    console.error('Error deleting fortune:', error);
+                }
+            });
+
+			// adds image based off category
+			console.log(fortuneCategory.innerHTML);
+			let fortuneImg = document.createElement('img');
+			if(fortuneCategory.innerHTML === 'Love'){
+				fortuneImg.src = `assets/card-page/love_back.png`;
+			}
+			else if(fortuneCategory.innerHTML === 'School'){
+				fortuneImg.src = `assets/card-page/school_back.png`;
+			}
+			else if(fortuneCategory.innerHTML === 'Life'){
+				fortuneImg.src = `assets/card-page/life_back.png`;
+			}
+			fortuneImg.style.display = 'block';
+
+            // Add elements with fortune text, category, and date to the fortune div wrapper
+            let fortuneDetails = document.createElement("div");
+            fortuneDetails.classList.add("fortuneDetails");
+			fortuneDetails.appendChild(fortuneImg);
+            fortuneDetails.appendChild(fortuneCategory);
+            fortuneDetails.appendChild(fortuneDate);
+            fortuneDetails.appendChild(deleteButton);
+
+            fortuneInList.appendChild(fortuneDetails);
+            fortuneInList.appendChild(fortuneText);
+            history.appendChild(fortuneInList);
+        });
+    } catch (error) {
+        console.error('Error fetching/displaying fortunes:', error);
+    }
 }
 /**
  * Function that enables the individual deletion of fortunes from the saved-reading pages.

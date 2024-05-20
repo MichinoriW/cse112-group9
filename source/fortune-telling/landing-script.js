@@ -8,6 +8,10 @@
  * @author Helen Lin
  */
 
+const { getUser, createUser } = require("../backend/controllers/userController");
+
+
+
 /**
  * A reference to the html element of the page which defines the background-image
  * @type {HTMLElement | null}
@@ -73,6 +77,52 @@ loginButton.addEventListener("click", () => {
 });
 signupButton.addEventListener("click", () => {
   signupDialog.showModal();
+});
+
+
+/** 
+ * User Login Controlls
+ */
+const confirmButton = document.getElementById("confirmBtn")
+const loginUser = doment.querySelector("name")
+const loginPass = doment.querySelector("password")
+
+confirmButton.addEventListener("click", () => {
+  const username = loginUser.value
+  const password = loginPass.value
+
+  const data = {username: username, password: password}
+
+  const userData = getUser(data)
+  const user = new User(userData)
+
+  /* --Global Model-- */
+  global.user = user;
+
+  toMenuPage()
+});
+
+/**
+ * Sign Up Controlls
+ */
+const confirmSignUpButton = document.getElementById("signupConfirmBtn")
+const signUpEmail = doment.querySelector("email")
+const signUpUser = doment.querySelector("signupName")
+const signUpPass = doment.querySelector("signupPassword")
+
+confirmSignUpButton.addEventListener("click", () => {
+  const email = signUpEmail.value
+  const username = signUpUser.value
+  const password = signUpPass.value
+
+  const data = {email : email, username : username, password:password}
+  const userData = createUser(data)
+  const user = new User(userData)
+
+  /* --Global Model-- */
+  global.user = user;
+
+  toMenuPage()
 });
 // TODO: script to fetch the database
 
