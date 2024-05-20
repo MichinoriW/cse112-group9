@@ -80,46 +80,46 @@ signupButton.addEventListener("click", () => {
 /** 
  * User Login Controlls
  */
-const confirmButton = document.getElementById("confirmBtn")
-const loginUser = document.querySelector("name")
-const loginPass = document.querySelector("password")
+const confirmButton = document.getElementById("confirmBtn");
+const loginUser = document.querySelector("name");
+const loginPass = document.querySelector("password");
 
 confirmButton.addEventListener("click", () => {
-  const username = loginUser.value
-  const password = loginPass.value
+  const username = loginUser.value;
+  const password = loginPass.value;
 
-  const data = {username: username, password: password}
+  const data = {username: username, password: password};
 
-  const userData = getUser(data)
-  const user = new User(userData)
+  const userData = getUser(data);
+  const user = new User(userData);
 
   /* --Global Model-- */
   global.user = user;
 
-  toMenuPage()
+  toMenuPage();
 });
 
 /**
  * Sign Up Controls
  */
-const confirmSignUpButton = document.getElementById("signupConfirmBtn")
-const signUpEmail = document.getElementById("email")
-const signUpUser = document.getElementById("signupName")
-const signUpPass = document.getElementById("signupPassword")
+const confirmSignUpButton = document.getElementById("signupConfirmBtn");
+const signUpEmail = document.getElementById("email");
+const signUpUser = document.getElementById("signupName");
+const signUpPass = document.getElementById("signupPassword");
 
 confirmSignUpButton.addEventListener("click", () => {
-  const email = signUpEmail.value
-  const username = signUpUser.value
-  const password = signUpPass.value
+  const email = signUpEmail.value;
+  const username = signUpUser.value;
+  const password = signUpPass.value;
 
-  const data = {email : email, username : username, password:password}
-  const userData = createUser(data)
-  const user = new User(userData)
+  const data = {email : email, username : username, password:password};
+  const userData = createUser(data);
+  const user = new User(userData);
 
   /* --Global Model-- */
   global.user = user;
 
-  toMenuPage()
+  toMenuPage();
 });
 
 document.getElementById('loginForm').addEventListener('submit', async function (event) {

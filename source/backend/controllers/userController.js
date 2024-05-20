@@ -76,7 +76,7 @@ const loginUser = async (req, res) => {
     } catch (error) {
         res.status(400).json({mssg: error.message});
     }
-}
+};
 
 // signup user
 const signupUser = async (req, res) => {
@@ -89,7 +89,7 @@ const signupUser = async (req, res) => {
     } catch (error) {
         res.status(400).json({mssg: error.message});
     }
-}
+};
 
 module.exports = {
     getUsers,

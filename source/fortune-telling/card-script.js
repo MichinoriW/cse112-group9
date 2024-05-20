@@ -413,7 +413,7 @@ function saveFortune() {
   })
   .then(data => {
     if (data.error) {
-      throw new Error(data.error)
+      throw new Error(data.error);
     }
     // Optional: Perform any actions on successful save
     console.log('Fortune saved successfully');
@@ -424,7 +424,7 @@ function saveFortune() {
 
 
   // Save Server side too
-  createUserReading(fortuneData)
+  createUserReading(fortuneData);
   // Remove listener for save fortune button
   predictButton.removeEventListener("click", generatePrediction);
 
