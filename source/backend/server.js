@@ -14,6 +14,7 @@ const app = express();
 app.use(cors());
 
 // middleware
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.use((req, res, next) => {
     console.log(req.path, req.method);
@@ -26,8 +27,15 @@ app.use('/api/user', userRoutes);
 app.use('/api/fortuneMsg', fortguneMsgRoutes);
 app.use('/api/fortuneCategory', fortuneCategoryRoutes);
 
+// for debugging
+app.use((req, res, next) => {
+    res.status(404).send('404');
+})
+
 // connect to db
-mongoose.connect(process.env.MONG_URI)
+// using local mongodb for now
+// mongoose.connect(process.env.MONG_URI)
+mongoose.connect("mongodb://127.0.0.1:27017/fortune")
     .then(() => {
         // listen for requests
         app.listen(process.env.PORT, () => {

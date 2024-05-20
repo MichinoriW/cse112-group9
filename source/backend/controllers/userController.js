@@ -31,10 +31,11 @@ const getUser = async (req, res) => {
 // POST a new user
 const createUser = async (req, res) => {
     try {
-        const { email, username, name, age } = req.body;
-        const user = await User.create({ email, username, name, age });
-        res.status(201).json(user);
+        const { email, username, password } = req.body;
+        const user = await User.create({ email, username, password });
+        res.redirect(req.header('referer') + 'source/fortune-telling/landing.html');
     } catch (error) {
+        // TODO: #12
         res.status(400).json({ error: 'Invalid data' });
     }
 };
@@ -66,10 +67,31 @@ const updateUser = async (req, res) => {
     }
 };
 
+// login
+const login = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await User.findOne({ username: username }, 'password');
+        if (!user) {
+            // TODO: #14
+            return res.status(404).json({ error: 'User not found' });
+        }
+        if (user.password != password) {
+            // TODO: #14
+            return res.status(404).json({ error: 'Incorrect password' });
+        }
+        // TODO: #13
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
 module.exports = {
     getUsers,
     getUser,
     createUser,
     deleteUser,
-    updateUser
+    updateUser,
+    login
 };
