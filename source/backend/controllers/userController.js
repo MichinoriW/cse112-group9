@@ -67,27 +67,32 @@ const updateUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
-    try{
+    try {
         const user = await User.login(email, password);
 
-        res.status(200).json({email, token});
+        // Set the user's ID in a cookie
+        res.cookie('user_id', user._id.toString(), { httpOnly: true });
+
+        res.status(200).json({ user_id: user._id.to_string(), email: user.email, username: user.username });
     } catch (error) {
-        res.status(400).json({mssg: error.message});
+        res.status(400).json({ message: error.message });
     }
 };
 
-// signup user
 const signupUser = async (req, res) => {
     const { email, username, password } = req.body;
 
-    try{
+    try {
         const user = await User.signup(email, username, password);
 
-        res.status(200).json(user);
+        // Set the user's ID in a cookie
+        res.cookie('user_id', user._id.toString(), { httpOnly: true });
+
+        res.status(200).json({ user_id: user._id, email: user.email, username: user.username });
     } catch (error) {
-        res.status(400).json({mssg: error.message});
+        res.status(400).json({ message: error.message });
     }
 };
 

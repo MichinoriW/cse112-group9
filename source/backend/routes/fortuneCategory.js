@@ -7,7 +7,7 @@ const {
     updateFortuneCategory,
 } = require('../controllers/fortuneCategoryController');
 
-// const requireAuth = require('../middleware/requireAuth');
+const requireAuth = require('../middleware/requireAuth');
 
 const router = express.Router();
 

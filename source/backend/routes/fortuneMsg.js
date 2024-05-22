@@ -7,7 +7,7 @@ const {
     updateFortuneMsg,
 } = require('../controllers/fortuneMsgController');
 
-// const requireAuth = require('../middleware/requireAuth');
+const requireAuth = require('../middleware/requireAuth');
 
 const router = express.Router();
 
@@ -15,18 +15,18 @@ const router = express.Router();
 // router.use(requireAuth);
 
 // GET all fortune messages
-router.get('/', getFortuneMsgs);
+router.get('/:user_id', getFortuneMsgs);
 
 // GET a single fortune message
-router.get('/:id', getFortuneMsg);
+router.get('/:user_id/:id', getFortuneMsg);
 
 // POST a new fortune message
 router.post('/', createFortuneMsg);
 
 // DELETE a fortune message
-router.delete('/:id', deleteFortuneMsg);
+router.delete('/:user_id/:id', deleteFortuneMsg);
 
 // UPDATE a fortune message
-router.patch('/:id', updateFortuneMsg);
+router.patch('/user_id/:id', updateFortuneMsg);
 
 module.exports = router;

@@ -9,7 +9,6 @@
  */
 
 /* TODO: The scope of these variables may be adjusted later */
-import { createUserReading } from "../backend/controllers/userReadingController.js";
 import { addFortune } from "./saved-readings-script.js";
 
 /**
@@ -388,9 +387,10 @@ function saveFortune() {
   // Get the current category as a string
   let category = JSON.parse(localStorage.getItem("category"));
   // Get the fortune response from wherever it's coming from in your code
-
+  let user_id = localStorage.getItem("user");
   // Create an object with the fortune data
   const fortuneData = {
+      user_id: user_id,
       category_id: category,
       description: fortuneText,
       date: new Date(),
@@ -423,8 +423,6 @@ function saveFortune() {
   });
 
 
-  // Save Server side too
-  createUserReading(fortuneData);
   // Remove listener for save fortune button
   predictButton.removeEventListener("click", generatePrediction);
 

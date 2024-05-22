@@ -64,7 +64,7 @@ h1 {
   text-shadow: 0 0 10px purple;
 }
 /* Container for the login and signup buttons */
-.auth-buttons {
+#authButtons {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -73,7 +73,7 @@ h1 {
 }
 
 /* Style the login and signup buttons */
-.auth-buttons button {
+#authButtons button {
   font-family: "Hubballi", cursive;
   font-size: 16px;
   padding: 5px 10px;
@@ -85,9 +85,23 @@ h1 {
   transition: background-color 0.3s ease;
 }
 
-.auth-buttons button:hover {
+#authButtons #logoutBtn {
+  display: none;
+}
+
+#authButtons button:hover {
   background-color: rgb(143, 122, 18);
   color: black;
+}
+
+/* Container for the user */
+#userInfo {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  gap: 10px;
+  color: white;
 }
 
 /* Styles the frame around the introduction text*/
