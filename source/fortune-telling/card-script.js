@@ -379,17 +379,50 @@ function chooseCard() {
 }
 
 
-
 /**
  * Function to save a fortune to localStorage for later display on the save
  * fortunes page. Executes when the save fortune button is pressed
  */
 function saveFortune() {
-  // Get the current cateogry as a string
+  // Get the current category as a string
   let category = JSON.parse(localStorage.getItem("category"));
+  // Get the fortune response from wherever it's coming from in your code
+  let user = JSON.parse(localStorage.getItem("user"));
+  let user_id = user.user_id;
+  // Create an object with the fortune data
+  const fortuneData = {
+      user_id: user_id,
+      category_id: category,
+      description: fortuneText,
+      date: new Date(),
+  };
+  console.log(fortuneData);
 
-  // pass in fortune response, current cateogry, and date
-  addFortune(fortuneText, category, new Date());
+  // Make an HTTP POST request to your server API endpoint
+  fetch('http://localhost:5500/api/fortuneMsg/', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(fortuneData)
+  })
+  .then(response => {
+      if (!response.ok) {
+          console.log(response);
+          throw new Error('Failed to save fortune');
+      }
+  })
+  .then(data => {
+    if (data.error) {
+      throw new Error(data.error);
+    }
+    // Optional: Perform any actions on successful save
+    console.log('Fortune saved successfully');
+  })
+  .catch(error => {
+      console.error('Error saving fortune:', error);
+  });
+
 
   // Remove listener for save fortune button
   predictButton.removeEventListener("click", generatePrediction);
@@ -398,6 +431,7 @@ function saveFortune() {
   saveButton.removeEventListener("click", saveFortune);
   saveButton.style.opacity = 0.5;
 }
+
 
 /**
  * Generates an array of non-duplicate random numbers within a given range.

@@ -16,32 +16,34 @@
     </audio> -->
     <header>
       <h1>THE FORTUNE HUT</h1>
-      <div class="auth-buttons">
+      <div id="authButtons">
         <button id="loginBtn">Login</button>
         <button id="signupBtn">Sign Up</button>
+        <button id="logoutBtn">Log out</button>
       </div>
+      <h3 id="userInfo"><span id="username"></span></h3>
     </header>
 
     <dialog id="loginDialog">
       <!-- Sends post request with username and password to the URL defined after action="/url/goes/here" -->
-      <form action="/login" method="post">
-          <input type="text" id="name" name="name" placeholder="Username">
+      <form id="loginForm" action="http://localhost:5500/api/login" method="post">
+          <input type="text" id="email" name="email" placeholder="email">
           <input type="password" id="password" name="password" placeholder="Password">
           
-          <button id="confirmBtn" value="submit">Confirm</button>
+          <button id="confirmBtn" value="submit" type="submit">Confirm</button>
           <button value="cancel" formmethod="dialog">Cancel</button>
-          </div>
+          
       </form>
       </dialog>
 
       <dialog id="signupDialog">
         <!-- Sends post request with user information to the URL defined after action="/signup" -->
-        <form action="/signup" method="post">
+        <form id="signupForm" action="http://localhost:5500/api/signup" method="post">
           <input type="email" id="email" name="email" placeholder="Email">
-          <input type="text" id="signupName" name="name" placeholder="Username">
+          <input type="text" id="signupUsername" name="username" placeholder="Username">
           <input type="password" id="signupPassword" name="password" placeholder="Password">
           
-          <button id="signupConfirmBtn" value="submit">Sign Up</button>
+          <button id="signupConfirmBtn" value="submit" type="submit">Sign Up</button>
           <button value="cancel" formmethod="dialog">Cancel</button>
         </form>
       </dialog>
