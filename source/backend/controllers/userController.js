@@ -68,7 +68,7 @@ const updateUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
-
+    console.log(email);
     try {
         const user = await User.login(email, password);
 
@@ -77,6 +77,7 @@ const loginUser = async (req, res) => {
 
         res.status(200).json({ user_id: user._id.toString(), email: user.email, username: user.username });
     } catch (error) {
+        console.log(error);
         res.status(400).json({ message: error.message });
     }
 };

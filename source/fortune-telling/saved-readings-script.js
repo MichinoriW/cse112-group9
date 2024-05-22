@@ -150,7 +150,7 @@ export function addFortune(fortuneText, category, date) {
 async function getFortunes() {
     try {
         // Make an HTTP GET request to the server API endpoint
-        const response = await fetch('http://localhost:5500/api/fortuneMsg');
+        const response = await fetch('http://localhost:5500/api/fortuneMsg/');
         if (!response.ok) {
             throw new Error('Failed to fetch fortunes');
         }
@@ -179,12 +179,13 @@ async function displayFortunes() {
 
     try {
         // Retrieve fortunes from the server
-        const response = await fetch('http://localhost:5500/api/fortuneMsg');
+        let user = JSON.parse(localStorage.getItem('user'));
+        let user_id = user.user_id;
+        const response = await fetch(`http://localhost:5500/api/fortuneMsg/${user_id}`);
         if (!response.ok) {
             throw new Error('Failed to fetch fortunes');
         }
         const fortunes = await response.json();
-
         // Clear the display of fortunes
         history.innerHTML = '';
 

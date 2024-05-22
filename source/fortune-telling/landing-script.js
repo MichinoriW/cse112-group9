@@ -97,9 +97,10 @@ if (userId) {
 }
 
 // Event listener for the signup form submission
-document.getElementById('signupForm').addEventListener('submit', async function (event) {
+document.getElementById('signupConfirmBtn').addEventListener('click', async function (event) {
   event.preventDefault();  // Prevent the default form submission behavior
-  const formData = new FormData(this);
+  const myForm = document.getElementById('signupForm');
+  const formData = new FormData(myForm);
   const data = Object.fromEntries(formData.entries());
   console.log(JSON.stringify(data));
 
@@ -132,9 +133,10 @@ document.getElementById('signupForm').addEventListener('submit', async function 
 });
 
 // Event listener for the login form submission
-document.getElementById('loginForm').addEventListener('submit', async function (event) {
+document.getElementById('confirmBtn').addEventListener('click', async function (event) {
   event.preventDefault();  // Prevent the default form submission behavior
-  const formData = new FormData(this);
+  const myForm = document.getElementById('loginForm')
+  const formData = new FormData(myForm);
   const data = Object.fromEntries(formData.entries());
   console.log(JSON.stringify(data));
 

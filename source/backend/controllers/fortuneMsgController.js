@@ -7,7 +7,9 @@ const FortuneMsg = require('../models/fortuneMsgModel');
 const getFortuneMsgs = async (req, res) => {
     try {
         const user_id = req.params.user_id;
-        const fortunes = await FortuneMsg.find({ user_id });
+        const fortunes = await FortuneMsg.find({ user_id: user_id});
+        console.log(user_id);
+        console.log(fortunes);
         res.status(200).json(fortunes);
     } catch (error) {
         res.status(500).json({ error: 'Internal server error' });
@@ -35,6 +37,7 @@ const createFortuneMsg = async (req, res) => {
         const fortune = await FortuneMsg.create({ user_id, category_id, description, date });
         res.status(201).json(fortune);
     } catch (error) {
+        console.log(error);
         res.status(400).json({ error: 'Invalid data' });
     }
 };
