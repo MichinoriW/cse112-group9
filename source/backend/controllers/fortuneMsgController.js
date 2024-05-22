@@ -45,13 +45,15 @@ const createFortuneMsg = async (req, res) => {
 // DELETE a fortune message for a specific user
 const deleteFortuneMsg = async (req, res) => {
     try {
-        const { user_id, id } = req.params;
-        const fortune = await FortuneMsg.findOneAndDelete({ user_id, _id: id });
+        const { user_id } = req.params;
+        const { fortune_id } = req.query;
+        const fortune = await FortuneMsg.findOneAndDelete({ user_id : user_id , _id: fortune_id });
         if (!fortune) {
             return res.status(404).json({ error: 'Fortune message not found' });
         }
         res.status(200).json({ message: 'Fortune message deleted successfully' });
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: 'Internal server error' });
     }
 };

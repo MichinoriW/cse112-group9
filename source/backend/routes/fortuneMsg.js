@@ -24,7 +24,8 @@ router.get('/:user_id/:id', getFortuneMsg);
 router.post('/', createFortuneMsg);
 
 // DELETE a fortune message
-router.delete('/:user_id/:id', deleteFortuneMsg);
+router.delete('/:user_id', deleteFortuneMsg);
+
 
 // UPDATE a fortune message
 router.patch('/user_id/:id', updateFortuneMsg);

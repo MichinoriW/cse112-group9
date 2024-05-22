@@ -233,9 +233,13 @@ async function displayFortunes() {
 
             // Delete fortune on click
             deleteButton.addEventListener('click', async () => {
+                
                 try {
+                    let user = JSON.parse(localStorage.getItem('user'));
+                    let user_id = user.user_id;
+
                     // Make an HTTP DELETE request to delete the fortune
-                    const deleteResponse = await fetch(`http://localhost:5500/api/fortuneMsg/${fortune._id}`, {
+                    const deleteResponse = await fetch(`http://localhost:5500/api/fortuneMsg/${user_id}?fortune_id=${fortune._id}`, {
                         method: 'DELETE'
                     });
                     if (!deleteResponse.ok) {
