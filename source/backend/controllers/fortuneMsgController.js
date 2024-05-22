@@ -1,5 +1,6 @@
 // Import the FortuneMsg model
 const FortuneMsg = require('../models/fortuneMsgModel');
+const { deleteMany } = require('../models/userModel');
 
 // Controller functions
 
@@ -47,6 +48,10 @@ const deleteFortuneMsg = async (req, res) => {
     try {
         const { user_id } = req.params;
         const { fortune_id } = req.query;
+        if (!fortune_id) {
+            await FortuneMsg.deleteMany({ user_id : user_id })
+            return res.status(200).json({ message: 'All Fortune messages deleted successfully' });
+        }
         const fortune = await FortuneMsg.findOneAndDelete({ user_id : user_id , _id: fortune_id });
         if (!fortune) {
             return res.status(404).json({ error: 'Fortune message not found' });

@@ -93,9 +93,24 @@ function backToMenu() {
  * temporary fuction used help test, but it could be useful for
  * the actual page.
  */
-function clearFortunes() {
-	localStorage.removeItem("fortunes");
-	displayFortunes();
+async function clearFortunes() {
+        try {
+            let user = JSON.parse(localStorage.getItem('user'));
+            let user_id = user.user_id;
+
+            // Make an HTTP DELETE request to delete the fortune
+            const deleteResponse = await fetch(`http://localhost:5500/api/fortuneMsg/${user_id}`, {
+                method: 'DELETE'
+            });
+            if (!deleteResponse.ok) {
+                throw new Error('Failed to delete fortune');
+            }
+            // Re-display fortunes after deletion
+            displayFortunes();
+        } catch (error) {
+            console.error('Error deleting fortune:', error);
+        }
+        displayFortunes();
 }
 
 /**
