@@ -17,8 +17,7 @@ const fortuneMsgSchema = new Schema({
     },
     date: {
         type: String,
-        required: true
+        required: true,
     }
 });
-
 module.exports = mongoose.model('FortuneMsg', fortuneMsgSchema);

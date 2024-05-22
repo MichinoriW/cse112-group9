@@ -75,7 +75,7 @@ const loginUser = async (req, res) => {
         // Set the user's ID in a cookie
         res.cookie('user_id', user._id.toString(), { httpOnly: true });
 
-        res.status(200).json({ user_id: user._id.to_string(), email: user.email, username: user.username });
+        res.status(200).json({ user_id: user._id.toString(), email: user.email, username: user.username });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
@@ -90,7 +90,7 @@ const signupUser = async (req, res) => {
         // Set the user's ID in a cookie
         res.cookie('user_id', user._id.toString(), { httpOnly: true });
 
-        res.status(200).json({ user_id: user._id, email: user.email, username: user.username });
+        res.status(200).json({ user_id: user._id.toString(), email: user.email, username: user.username });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

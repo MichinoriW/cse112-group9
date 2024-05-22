@@ -387,7 +387,8 @@ function saveFortune() {
   // Get the current category as a string
   let category = JSON.parse(localStorage.getItem("category"));
   // Get the fortune response from wherever it's coming from in your code
-  let user_id = localStorage.getItem("user");
+  let user = JSON.parse(localStorage.getItem("user"));
+  let user_id = user.user_id;
   // Create an object with the fortune data
   const fortuneData = {
       user_id: user_id,
@@ -398,7 +399,7 @@ function saveFortune() {
   console.log(fortuneData);
 
   // Make an HTTP POST request to your server API endpoint
-  fetch('http://localhost:5500/api/fortuneMsg', {
+  fetch('http://localhost:5500/api/fortuneMsg/', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
