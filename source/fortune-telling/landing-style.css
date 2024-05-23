@@ -215,7 +215,7 @@ dialog#signupDialog form {
 }
 
 /* Styling form inputs to match the theme */
-dialog#loginDialog input[type="text"],
+dialog#loginDialog input[type="email"],
 dialog#loginDialog input[type="password"],
 dialog#signupDialog input[type="text"],
 dialog#signupDialog input[type="password"],

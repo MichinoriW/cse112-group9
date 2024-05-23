@@ -93,6 +93,7 @@ const signupUser = async (req, res) => {
 
         res.status(200).json({ user_id: user._id.toString(), email: user.email, username: user.username });
     } catch (error) {
+        console.log(error);
         res.status(400).json({ message: error.message });
     }
 };

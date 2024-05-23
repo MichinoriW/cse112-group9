@@ -114,7 +114,7 @@ document.getElementById('signupConfirmBtn').addEventListener('click', async func
       if (!response.ok) {
           const errorData = await response.json();
           console.error('HTTP Error:', response.status, errorData);
-          alert('An error occurred: ' + response.statusText);
+          alert('An error occurred: ' + errorData.message);
           return;
       }
 
