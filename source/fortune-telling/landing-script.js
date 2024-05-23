@@ -102,6 +102,7 @@ document.getElementById('signupConfirmBtn').addEventListener('click', async func
   const myForm = document.getElementById('signupForm');
   const formData = new FormData(myForm);
   const data = Object.fromEntries(formData.entries());
+  let responseData;
   console.log(JSON.stringify(data));
 
   try {
@@ -118,7 +119,7 @@ document.getElementById('signupConfirmBtn').addEventListener('click', async func
           return;
       }
 
-      const responseData = await response.json();
+      responseData = await response.json();
       console.log('Signup Success:', responseData);
       alert('Signup successful!');
       // Optionally store user data in localStorage
@@ -138,6 +139,7 @@ document.getElementById('confirmBtn').addEventListener('click', async function (
   const myForm = document.getElementById('loginForm')
   const formData = new FormData(myForm);
   const data = Object.fromEntries(formData.entries());
+  let responseData;
   console.log(JSON.stringify(data));
 
   try {
@@ -154,7 +156,7 @@ document.getElementById('confirmBtn').addEventListener('click', async function (
           return;
       }
 
-      const responseData = await response.json();
+      responseData = await response.json();
       console.log('Login Success:', responseData);
       alert('Login successful!');
       // Store user data in localStorage
@@ -168,13 +170,26 @@ document.getElementById('confirmBtn').addEventListener('click', async function (
   showUserInfo(responseData.username);  // Update the UI to show user info
 });
 
+document.getElementById('logoutBtn').addEventListener('click', async function (event) {
+  localStorage.clear();
+  const loginBtn = document.getElementById('loginBtn');
+  const signupBtn = document.getElementById('signupBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const userInfo = document.getElementById('userInfo');
+  const usernameSpan = document.getElementById('username');
+
+  loginBtn.style.display = 'block';
+  signupBtn.style.display = 'block';
+  userInfo.style.display = 'none';
+  logoutBtn.style.display = 'none';
+})
 
 /**
 * Hides the authentication buttons (login and signup).
 */
 function hideButtons() {
-  const authButtons = document.getElementById('authButtons');
-  authButtons.style.display = 'none';
+  // const authButtons = document.getElementById('authButtons');
+  // authButtons.style.display = 'none';
 }
 
 /**
@@ -182,14 +197,17 @@ function hideButtons() {
 * @param {string} username - The username to display.
 */
 function showUserInfo(username) {
+  console.log("Showing Info");
   const loginBtn = document.getElementById('loginBtn');
   const signupBtn = document.getElementById('signupBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
   const userInfo = document.getElementById('userInfo');
   const usernameSpan = document.getElementById('username');
 
   loginBtn.style.display = 'none';
   signupBtn.style.display = 'none';
   userInfo.style.display = 'block';
+  logoutBtn.style.display = 'block';
   usernameSpan.textContent = `Welcome, ${username}`;
 }
 
