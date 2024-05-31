@@ -8,35 +8,35 @@
  * @author Christian Lee
  */
 
-
 /**
  * A reference to the div containing all the category Buttons on menu.html
  * @type {HTMLCollection<Element>}
  */
-const categories = document.getElementById('categories');
+const categories = document.getElementById("categories");
 
 /**
  * Array of category Buttons to create
  * @type {HTMLCollection<String>}
  */
-const titles = [
-  "School",
-  "Love",
-  "Life",
-];
+const titles = ["School", "Love", "Life"];
 
 /**
  * A reference to back button HTMlElement on menu.html
  * @type {HTMLElement | null}
  */
-const backButton = document.getElementById('back');
+const backButton = document.getElementById("back");
 
 /**
  * A reference to Saved Readings button HTMlElement on menu.html
  * @type {HTMLElement | null}
  */
-const savedReadingsButton = document.getElementById('savedReadings');
+const savedReadingsButton = document.getElementById("savedReadings");
 
+/**
+ * A reference to Saved Readings button HTMlElement on menu.html
+ * @type {HTMLElement | null}
+ */
+const explanationButton = document.getElementById("explanation");
 /**
  * A function used for an event listener which is responsible for performing the
  * necessary actions when a card is clicked on by the user such as saving card
@@ -44,8 +44,8 @@ const savedReadingsButton = document.getElementById('savedReadings');
  */
 function setCardLink(i) {
   /* Set data in local storage based on clicked category */
-  localStorage.setItem('category', JSON.stringify(titles[i]));
-  setTimeout(function() {
+  localStorage.setItem("category", JSON.stringify(titles[i]));
+  setTimeout(function () {
     window.location.href = "card.html";
   }, 400);
 }
@@ -70,7 +70,7 @@ function setCardLink(i) {
 function setLandingLink() {
   //const sound = document.getElementById("click");
   //sound.addEventListener("ended", function() {
-    window.location.href = "landing.html";
+  window.location.href = "landing.html";
   //});
 }
 
@@ -81,7 +81,18 @@ function setLandingLink() {
 function setSavedReadingsLink() {
   //const sound = document.getElementById("click");
   //sound.addEventListener("ended", function() {
-    window.location.href = "saved.html";
+  window.location.href = "saved.html";
+  //});
+}
+
+/**
+ * A function used for an event listener which is responsible for performing the
+ * necessary actions when the saved readings page is clicked
+ */
+function setExplanationLink() {
+  //const sound = document.getElementById("click");
+  //sound.addEventListener("ended", function() {
+  window.location.href = "explanation.html";
   //});
 }
 
@@ -95,16 +106,16 @@ function createCategoryButtons() {
     newCategory.setAttribute("class", "categoryButton");
     newCategory.textContent = titles[i];
 
-    newCategory.addEventListener('click', function () {
+    newCategory.addEventListener("click", function () {
       setCardLink(i);
     });
     categories.appendChild(newCategory);
   }
 }
 
-window.addEventListener('DOMContentLoaded', () =>{
+window.addEventListener("DOMContentLoaded", () => {
   createCategoryButtons();
-  //playClickSound(); 
+  //playClickSound();
 });
 
 /*
@@ -112,11 +123,18 @@ window.addEventListener('DOMContentLoaded', () =>{
  * menu.html so that when clicked the user gets navigated to the
  * Landing Page (landing.html)
  */
-backButton.addEventListener('click', setLandingLink);
+backButton.addEventListener("click", setLandingLink);
 
 /*
  * Adds an onClick listner to the reference to the Saved Readings button html
  * element on menu.html so that when clicked the user gets navigated
  * to the Saved Readings Page (saved-readings.html)
  */
-savedReadingsButton.addEventListener('click', setSavedReadingsLink);
+savedReadingsButton.addEventListener("click", setSavedReadingsLink);
+
+/*
+ * Adds an onClick listner to the reference to the Saved Readings button html
+ * element on menu.html so that when clicked the user gets navigated
+ * to the Saved Readings Page (saved-readings.html)
+ */
+explanationButton.addEventListener("click", setExplanationLink);

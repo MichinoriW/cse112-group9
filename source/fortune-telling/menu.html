@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>The Fortune Hut - Menu</title>
-    <link rel="stylesheet" href="menu-style.css">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="menu-style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   </head>
   <body>
     <!--<audio id="click">
@@ -12,17 +12,24 @@
     <div class="header">
       <button class="headerElement" id="back">Back</button>
       <p class="headerElement" id="title">THE FORTUNE HUT</p>
-      <button class="headerElement" id="savedReadings">Saved Readings</button>
+      <div class="rightSideButtonContainer">
+        <button class="headerElement" id="savedReadings">Saved Readings</button>
+        <button class="headerElement" id="explanation">
+          Card Explanations
+        </button>
+      </div>
     </div>
 
-    <div id="categories">
-    </div>
+    <div id="categories"></div>
 
     <div id="instructions">
-      <p> Choose a category for your fortune! You will be presented with cards to choose from.
-        Pick a card and confirm your choice. The card you pick will reveal your future in that category.
-        If you choose to save your readings, your previous reading will be visible in the "Saved Readings" tab,
-        should you want to see them.</p>
+      <p>
+        Choose a category for your fortune! You will be presented with cards to
+        choose from. Pick a card and confirm your choice. The card you pick will
+        reveal your future in that category. If you choose to save your
+        readings, your previous reading will be visible in the "Saved Readings"
+        tab, should you want to see them.
+      </p>
     </div>
     <script type="text/javascript" src="menu-script.js"></script>
   </body>
