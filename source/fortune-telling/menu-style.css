@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&display=swap");
 
 /* || HTML Section */
 /* Styles the whole html page */
 html {
-  background: url(assets/menu-page/backdrop.png) no-repeat center center fixed; 
+  background: url(assets/menu-page/backdrop.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -14,7 +14,7 @@ html {
 
 /* Styles all buttons */
 button {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   font-weight: bold;
   background: url(assets/menu-page/wood-placard.png);
   -webkit-background-size: 100% 100%;
@@ -28,11 +28,9 @@ button {
   border: none;
 }
 
-
 button:hover {
-  box-shadow: 0 0  10px 5px #ad08c7;
+  box-shadow: 0 0 10px 5px #ad08c7;
 }
-
 
 /* || Header Section */
 /* Styles the header */
@@ -48,13 +46,13 @@ button:hover {
   text-align: center;
 }
 /* Styles the header box*/
-.header p{
+.header p {
   color: white;
-  font-family: "playfairDisplay", serif; 
+  font-family: "playfairDisplay", serif;
   text-align: center;
   font-size: 18px;
   line-height: 1.5;
-  margin-top: 10px; 
+  margin-top: 10px;
   margin-bottom: 10px;
   padding: 20px;
   background-color: transparent;
@@ -72,6 +70,16 @@ button:hover {
   justify-self: end;
 }
 
+#explanation {
+  justify-self: end;
+}
+
+.rightSideButtonContainer {
+  display: grid;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
 /* || Category Buttons */
 
 /* Styles the container for Category Buttons */
@@ -83,7 +91,6 @@ button:hover {
   gap: 100px;
   margin: 30px;
 }
-
 
 /* || Instructions */
 
@@ -97,7 +104,7 @@ button:hover {
 }
 
 #title {
-  font-family: 'Macondo', cursive;
+  font-family: "Macondo", cursive;
   font-size: 70px;
   font-weight: bold;
   color: whitesmoke;
@@ -106,7 +113,7 @@ button:hover {
 }
 
 #instructions > p {
-  font-family: 'Hubballi', cursive;
+  font-family: "Hubballi", cursive;
   font-weight: bold;
   font-size: 30px;
 }
