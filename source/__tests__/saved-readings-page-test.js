@@ -75,7 +75,6 @@ test("Check if everything in localStorage is displayed", async () => {
 
     // Assert the number of elements matches the number of fortunes in localStorage
     expect(fortuneElements.length).toBe(localStorageFortunes.length);
-});
 
         for (let i = 0; i < fortuneElements.length; i++) {
             let fortuneElement = fortuneElements[i];
