@@ -46,29 +46,36 @@ describe('Basic user flow for Saved Readings Page', () => {
         expect(localStorageValue).toBeNull();
     });
 
-    test("Check if everything in localStorage is displayed", async() => {
-        console.log("Check if everything in localStorage is displayed...");
+test("Check if everything in localStorage is displayed", async () => {
+    console.log("Check if everything in localStorage is displayed...");
 
-        // Set up initial state of localStorage
-        await page.evaluate(() => {
-            let fortunes = [
-                ['Fortune text 1', 'Category 1', '2023-06-01'],
-                ['Fortune text 2', 'Category 2', '2023-06-02'],
-                ['Fortune text 3', 'Category 3', '2023-06-03']
-            ];
-            localStorage.setItem('fortunes', JSON.stringify(fortunes));
-        });
+    // Set up initial state of localStorage
+    await page.evaluate(() => {
+        let fortunes = [
+            ['Fortune text 1', 'Category 1', '2023-06-01'],
+            ['Fortune text 2', 'Category 2', '2023-06-02'],
+            ['Fortune text 3', 'Category 3', '2023-06-03']
+        ];
+        localStorage.setItem('fortunes', JSON.stringify(fortunes));
+    });
 
-        page.reload(); 
-        await page.waitForNavigation(); 
+    // Reload the page and wait for it to fully load
+    await page.reload({ waitUntil: ['networkidle0', 'domcontentloaded'] });
 
-        let localStorageFortunes = await page.evaluate(() => {
-            return JSON.parse(localStorage.getItem('fortunes'));
-        });
+    // Get fortunes from localStorage within page context
+    let localStorageFortunes = await page.evaluate(() => {
+        return JSON.parse(localStorage.getItem('fortunes'));
+    });
 
-        let fortuneElements = await page.$$('.fortune');
+    // Wait for the elements to be rendered based on localStorage data
+    await page.waitForSelector('.fortune');
 
-        expect(fortuneElements.length).toBe(localStorageFortunes.length);
+    // Get the elements corresponding to the fortunes
+    let fortuneElements = await page.$$('.fortune');
+
+    // Assert the number of elements matches the number of fortunes in localStorage
+    expect(fortuneElements.length).toBe(localStorageFortunes.length);
+});
 
         for (let i = 0; i < fortuneElements.length; i++) {
             let fortuneElement = fortuneElements[i];
