@@ -135,7 +135,7 @@ document.getElementById('signupConfirmBtn').addEventListener('click', async func
 // Event listener for the login form submission
 document.getElementById('confirmBtn').addEventListener('click', async function (event) {
   event.preventDefault();  // Prevent the default form submission behavior
-  const myForm = document.getElementById('loginForm')
+  const myForm = document.getElementById('loginForm');
   const formData = new FormData(myForm);
   const data = Object.fromEntries(formData.entries());
   console.log(JSON.stringify(data));
