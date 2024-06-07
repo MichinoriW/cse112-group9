@@ -4,20 +4,41 @@ const { deleteMany } = require('../models/userModel');
 
 // Controller functions
 
-// GET all fortune messages for a specific user
+
+/**
+ * * @summary Used to retrieve fortune(s) for a specific user
+ * 
+ * * @example
+ * // to get the specific fortune 78910 for user 123456
+ *  GET /api/fortuneMsg/123456?fortune_id=78910
+ * 
+ * * @example
+ * // to get all the fortunes for user 123456
+ * GET /api/fortuneMsg/123456
+ */
 const getFortuneMsgs = async (req, res) => {
     try {
         const user_id = req.params.user_id;
-        const fortunes = await FortuneMsg.find({ user_id: user_id});
+        const { fortune_id } = req.query;
+        let fortunes;
+        if (fortune_id){
+            fortunes = await FortuneMsg.find({ user_id: user_id, id: fortune_id});
+        }
+        else{
+            fortunes = await FortuneMsg.find({ user_id: user_id});
+        }
         console.log(user_id);
         console.log(fortunes);
         res.status(200).json(fortunes);
     } catch (error) {
+        console.log(error)
         res.status(500).json({ error: 'Internal server error' });
     }
 };
 
-// GET a single fortune message for a specific user
+/**
+ * @deprecated This function is deprecated and has been replaced by getFortuneMsgs called with /:user_id?fortune_id={fortune id}
+ */
 const getFortuneMsg = async (req, res) => {
     try {
         const { user_id, id } = req.params;
@@ -39,7 +60,12 @@ const createFortuneMsg = async (req, res) => {
         res.status(201).json(fortune);
     } catch (error) {
         console.log(error);
-        res.status(400).json({ error: 'Invalid data' });
+        if(error.isValidationError){
+            res.status(400).json({ error: 'Invalid data' });
+        }
+        else{
+            res.status(500).json({ error: 'Internal server error' });
+        }
     }
 };
 
@@ -52,8 +78,8 @@ const deleteFortuneMsg = async (req, res) => {
             await FortuneMsg.deleteMany({ user_id : user_id })
             return res.status(200).json({ message: 'All Fortune messages deleted successfully' });
         }
-        const fortune = await FortuneMsg.findOneAndDelete({ user_id : user_id , _id: fortune_id });
-        if (!fortune) {
+        const fortune = await FortuneMsg.deleteOne({ user_id : user_id , _id: fortune_id });
+        if (fortune.deletedCount === 0) {
             return res.status(404).json({ error: 'Fortune message not found' });
         }
         res.status(200).json({ message: 'Fortune message deleted successfully' });
