@@ -14,6 +14,8 @@ This repository contains code written by Team 9 - Amphibian Studios from UC San 
 
 ### Installation
 ___
+The [website](https://michinoriw.github.io/cse112-group9/) is live via GitHub Pages.
+
 All code relevant to *The Fortune Hut* can be found in the following path: `source/fortune-telling`
 
 You can clone this repository to your local machine and deploy the website via [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) by navigating to `source/fortune-telling/landing.html`
