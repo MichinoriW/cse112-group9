@@ -1,7 +1,7 @@
 // userReadingController.js
 
 // Import the UserReading model
-const UserReading = require('../models/UserReadingModel');
+const UserReading = require('../models/userReadingModel');
 const mongoose = require('mongoose');
 // Controller functions
 
