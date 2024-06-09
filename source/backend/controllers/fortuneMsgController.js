@@ -31,7 +31,7 @@ const getFortuneMsgs = async (req, res) => {
         console.log(fortunes);
         res.status(200).json(fortunes);
     } catch (error) {
-        console.log(error)
+        console.log(error);
         res.status(500).json({ error: 'Internal server error' });
     }
 };
@@ -75,7 +75,7 @@ const deleteFortuneMsg = async (req, res) => {
         const { user_id } = req.params;
         const { fortune_id } = req.query;
         if (!fortune_id) {
-            await FortuneMsg.deleteMany({ user_id : user_id })
+            await FortuneMsg.deleteMany({ user_id : user_id });
             return res.status(200).json({ message: 'All Fortune messages deleted successfully' });
         }
         const fortune = await FortuneMsg.deleteOne({ user_id : user_id , _id: fortune_id });

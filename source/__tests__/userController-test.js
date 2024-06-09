@@ -10,12 +10,12 @@ describe('POST api/user/login', () => {
     it('should login user with email and password', async () => {
         // Mock the find method
         const mockUser = {_id: 1234, email:"email@me.com", username:"myUsername"};
-        UserModel.login.mockResolvedValue(mockUser)
+        UserModel.login.mockResolvedValue(mockUser);
 
         const formData = {
             email : "email",
             password : "password",
-        }
+        };
 
         const response = await request(app).post(`/api/user/login`).send(formData);
 
@@ -33,7 +33,7 @@ describe('POST api/user/login', () => {
         const formData = {
             email : "email",
             password : "password",
-        }
+        };
 
         const response = await request(app).post(`/api/user/login`).send(formData);
 
@@ -46,13 +46,13 @@ describe('POST api/userModel/signup', () => {
     it('should signup user with email, username, and password', async () => {
         // Mock the find method
         const mockUser = {_id: 1234, email:"email@me.com", username:"myUsername"};
-        UserModel.signup.mockResolvedValue(mockUser)
+        UserModel.signup.mockResolvedValue(mockUser);
 
         const formData = {
             email : "email",
             username: "myUsername",
             password : "password",
-        }
+        };
 
         const response = await request(app).post(`/api/user/signup`).send(formData);
 

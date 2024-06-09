@@ -71,7 +71,7 @@ describe('POST api/fortunesMsg', () => {
             description: "test",
             date: newDate,
         };
-        JSON.stringify(fortuneData)
+        JSON.stringify(fortuneData);
         const response = await request(app).post(`/api/fortuneMsg/`).send(fortuneData);
 
         expect(response.status).toBe(201);
@@ -105,7 +105,7 @@ describe('DELETE api/fortuneMsg/:user_id?fortune_id=:fortune_id', () => {
         const response = await request(app).delete(`/api/fortuneMsg/${userId}?fortune_id=${id}`);
 
         expect(response.status).toBe(200);
-        expect(response.body).toEqual({ message: 'Fortune message deleted successfully' })
+        expect(response.body).toEqual({ message: 'Fortune message deleted successfully' });
         expect(FortuneMsg.deleteOne).toHaveBeenCalledWith({ user_id: userId, _id: id });
     });
 
@@ -120,7 +120,7 @@ describe('DELETE api/fortuneMsg/:user_id?fortune_id=:fortune_id', () => {
         expect(response.status).toBe(404);
         expect(response.body).toEqual({ error: "Fortune message not found" });
         expect(FortuneMsg.deleteOne).toHaveBeenCalledWith({ user_id: userId, _id: id });
-    })
+    });
     it('should handle errors properly', async () => {
         // Mock the find method to throw an error
         FortuneMsg.deleteOne.mockRejectedValue(new Error('Internal server error'));
@@ -143,7 +143,7 @@ describe('DELETE api/fortuneMsg/:user_id', () => {
         const response = await request(app).delete(`/api/fortuneMsg/${userId}`);
 
         expect(response.status).toBe(200);
-        expect(response.body).toEqual({ message: 'All Fortune messages deleted successfully' })
+        expect(response.body).toEqual({ message: 'All Fortune messages deleted successfully' });
         expect(FortuneMsg.deleteMany).toHaveBeenCalledWith({ user_id: userId });
     });
     it('should handle errors properly', async () => {
