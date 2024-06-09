@@ -1,0 +1,32 @@
+---
+status: accepted
+date: 2024-06-09
+deciders: [Michi, Claire, Devin, Dylan, Sebastian, Borna, Fanglei, Vivian]
+consulted: [Michi, Claire, Devin, Dylan, Sebastian, Borna, Fanglei, Vivian]
+informed: [Team members]
+---
+
+# ChatGPT Integration
+
+## Context and Problem Statement
+
+As we are nearing the deadline, a decision must be made whether we are able to integrate ChatGPT or not.
+
+## Considered Options
+
+* Integrate ChatGPT
+* Do not integrate ChatGPT
+
+## Decision Outcome
+
+**Chosen option:**
+
+Do not integrate ChatGPT.
+
+## Rationale
+
+We are unable to integrate ChatGPT due to time constraint. We still need to test, bug fix, do the finishing touches, etc. We thought that it would take too much of our time and effort when we should focus on a functinal product.
+
+## Other Information
+
+None

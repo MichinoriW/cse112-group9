@@ -35,21 +35,32 @@ describe('Basic user flow for Landing Page', () => {
         expect(prevColor).not.toMatch(newColor);
     });
 
-    test("Check if page changes to menu page on button click", async () => {
-        console.log("Before button click...");
+test("Check if page changes to menu page on button click", async () => {
+    console.log("Before button click...");
 
-        const button = await page.$('button');
-        const [response] = await Promise.all([
-            page.waitForNavigation(), // The promise resolves after navigation has finished
-            button.click(), // Clicking the link will indirectly cause a navigation
-          ]);
+    // Wait for the button to be present in the DOM
+    await page.waitForSelector('button');
 
-        const page2URL = await page.url();
-        const page2Title = await page.title();
+    const button = await page.$('button');
+    if (!button) {
+        throw new Error("Button not found");
+    }
 
-        expect(page2Title).toBe('The Fortune Hut - Menu');
-        expect(page2URL).toBe('http://127.0.0.1:8000/source/fortune-telling/menu.html');
-    });
+    // Wait for the navigation triggered by the button click
+    await Promise.all([
+        page.waitForNavigation({ waitUntil: ['networkidle0', 'domcontentloaded'] }), // Ensure the page is fully loaded
+        button.click(), // Clicking the button should cause a navigation
+    ]);
+
+    // Get the current URL and title of the page
+    const page2URL = await page.url();
+    const page2Title = await page.title();
+
+    // Check if the URL and title are as expected
+    expect(page2Title).toBe('The Fortune Hut - Menu');
+    expect(page2URL).toBe('http://127.0.0.1:8000/source/fortune-telling/menu.html');
+});
+
 
     test("Check if image displays correctly ", async () => {
         let backgroundImage = await page.evaluate(() => {

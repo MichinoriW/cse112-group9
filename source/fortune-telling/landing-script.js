@@ -76,6 +76,12 @@ signupButton.addEventListener("click", () => {
   signupDialog.showModal();
 });
 
+  document.getElementById('signupCancelBtn').addEventListener('click', function() {
+    document.getElementById('signupDialog').close();
+  });
+  document.getElementById('cancelBtn').addEventListener('click', function() {
+    document.getElementById('loginDialog').close();
+  });
 /**
  * Retrieves the value of a specific cookie by name.
  * @param {string} name - The name of the cookie to retrieve.
