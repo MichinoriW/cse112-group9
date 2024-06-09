@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = require('../backend/server.js'); // Adjust the path as needed
 const UserModel = require('../backend/models/userModel.js'); // Adjust the path as needed
 
-// Mock the FortuneMsg model
+// Mock the FortuneMsg model.
 jest.mock('../backend/models/userModel.js');
 
 describe('POST api/user/login', () => {
