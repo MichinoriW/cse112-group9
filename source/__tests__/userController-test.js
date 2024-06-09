@@ -71,7 +71,7 @@ describe('POST api/userModel/signup', () => {
             email : "email",
             username: "myUsername",
             password : "password",
-        }
+        };
 
         const response = await request(app).post(`/api/user/signup`).send(formData);
 
