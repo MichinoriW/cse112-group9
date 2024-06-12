@@ -6,7 +6,7 @@ This repository contains code written by Team 9 - Amphibian Studios from UC San 
 *The Fortune Hut* is the final project from Professor Thomas Powell's CSE 112 class in the Spring 2024 quarter at UC San Diego. It is a tarot card reading app that allows you to receive a fortune from 3 categories: School, Love, and Life.
 ___
 ### Installation
-The [website](https://michinoriw.github.io/cse112-group9/) is live via GitHub Pages.
+The [website](https://michinoriw.github.io/cse112-group9/source/fortune-telling/menu.html) is live via GitHub Pages.
 
 All code relevant to *The Fortune Hut* can be found in the following path: `source/fortune-telling`
 
