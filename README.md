@@ -2,13 +2,6 @@
 This repository contains code written by Team 9 - Amphibian Studios from UC San Diego's Spring 2024 CSE 112 offering and builds on [this project](https://github.com/cse110-sp23-group4/cse110-sp23-group4) from SP23 CSE 110 Team 4 - Powell Rangers.
 
 ## The Fortune Hut - Final Project
-![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/cse110-sp23-group4/cse110-sp23-group4/testing.yml?branch=main)
-![GitHub last commit](https://img.shields.io/github/last-commit/cse110-sp23-group4/cse110-sp23-group4)
-![GitHub contributors](https://img.shields.io/github/contributors/cse110-sp23-group4/cse110-sp23-group4)
-![GitHub issues](https://img.shields.io/github/issues-raw/cse110-sp23-group4/cse110-sp23-group4)
-![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/cse110-sp23-group4/cse110-sp23-group4)
-![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability-percentage/cse110-sp23-group4/cse110-sp23-group4)
-![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/cse110-sp23-group4/cse110-sp23-group4)
 
 *The Fortune Hut* is the final project from Professor Thomas Powell's CSE 112 class in the Spring 2024 quarter at UC San Diego. It is a tarot card reading app that allows you to receive a fortune from 3 categories: School, Love, and Life.
 
