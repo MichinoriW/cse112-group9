@@ -7,7 +7,7 @@
  * @author Khanh Le
  * @author Samuel Au
  */
-
+// test change
 /* TODO: The scope of these variables may be adjusted later */
 import { addFortune } from "./saved-readings-script.js";
 
