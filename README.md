@@ -1,7 +1,7 @@
 # SP23 CSE 110 Team 4 - Powell Rangers Repository
 This repository contains all the code written by Team 4 - Powell Rangers from UC San Diego's Spring 2023 CSE 110 offering. You can jump to relevant projects using the hyperlinks below:
 
-**PUBLIC VIDEO** https://youtu.be/xxO48Rzb890 
+**PUBLIC VIDEO** [https://youtu.be/xxO48Rzb890 ](https://youtu.be/1g7V2uNu5mI)
 
 Private Video: https://youtu.be/t3RL_n96MRk
 
