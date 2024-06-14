@@ -1,7 +1,11 @@
 # SP23 CSE 110 Team 4 - Powell Rangers Repository
 This repository contains all the code written by Team 4 - Powell Rangers from UC San Diego's Spring 2023 CSE 110 offering. You can jump to relevant projects using the hyperlinks below:
 
-[**FINAL PROJECT**](#the-fortune-hut---final-project) | [Exploratory Project](#8-ball---exploratory-project) | [About Us](#about-us)
+**PUBLIC VIDEO** https://youtu.be/xxO48Rzb890 
+
+Private Video: https://youtu.be/t3RL_n96MRk
+
+[FINAL PROJECT](#the-fortune-hut---final-project) | [Exploratory Project](#8-ball---exploratory-project) | [About Us](#about-us)
 
 ## The Fortune Hut - Final Project
 ![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/cse110-sp23-group4/cse110-sp23-group4/testing.yml?branch=main)
